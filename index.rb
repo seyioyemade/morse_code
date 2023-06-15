@@ -37,5 +37,31 @@ def decode_char(morse_code)
 
 end
 
-puts decode_char '.-'
+# puts decode_char '-.-'
+
+
+def decode_word(morse_code)
+
+  character = ''
+  word = ''
+
+  morse_code.each_char do |char|
+    if char == ' '
+      dec_char = decode_char character
+      word += dec_char
+      character = ''
+    else
+      character += char
+    end
+  end
+
+  dec_char = decode_char character
+  word += dec_char
+
+  return word
+end
+
+# puts decode_word "-. .- -- ."
+
+
 
